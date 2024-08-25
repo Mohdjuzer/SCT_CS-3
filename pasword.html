@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password intensity</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <img src="https://w0.peakpx.com/wallpaper/148/600/HD-wallpaper-dark-blue-abstract-background-blue-lines-background-material-design-stylish-blue-background.jpg" alt="gg" srcset=""  class="gg">
+    <video autoplay muted loop id="myVideo">
+        <source src="Screen Recording 2024-08-25 141226.mp4" type="video/mp4">
+      </video>
+    <div class="box">
+        <h2 class="heading">
+            Password Length <span id="text">Check</span>
+        </h2>
+        <input type="password" id="password" placeholder="Enter your password">
+        <img src="eye-off-line.png" onclick="pass()" class="pass-icon" id="pass-icon">
+        <div class="password-strength"></div>
+        <div class="password-strength"></div>
+        <div class="password-strength"></div>
+        <div id="yolo" class="yolo">Password intensity</div>
+
+    </div>
+    <script>
+        let passwordInput = document.getElementById('password');
+        let passwordStrengths = document.querySelectorAll('.password-strength');
+        let text = document.getElementById('text');
+        let yolo = document.getElementById('yolo');
+
+        passwordInput.addEventListener('input', function (event) {
+            let password = event.target.value;
+            let strength = Math.min(password.length, 12);
+            let degree = strength * 30;
+            let gradientColor = strength <= 4 ? '#ff2c12' :
+                (strength <= 9 ? '#ff9800' : '#12ff12');
+            let strengthText = strength <= 4 ? 'Short' :
+                (strength <= 9 ? 'Medium' : 'Proper');
+            passwordStrengths.forEach(passwordStrength => {
+                passwordStrength.style.background = `conic-gradient(${gradientColor} ${degree}deg, rgba(255, 255, 255, 0.222) ${degree}deg)`;
+
+               
+                    let n = password.length;
+                    // Checking lower alphabet in string
+                    let hasLower = false;
+                    let hasUpper = false;
+                    let hasDigit = false;
+                    let specialChar = false;
+                    const normalChars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890 ";
+
+                    for (let i = 0; i < n; i++) {
+                        if (password[i] >= "a" && password[i] <= "z") {
+                            hasLower = true;
+                        }
+                        if (password[i] >= "A" && password[i] <= "Z") {
+                            hasUpper = true;
+                        }
+                        if (password[i] >= "0" && password[i] <= "9") {
+                            hasDigit = true;
+                        }
+                        if (!normalChars.includes(password[i])) {
+                            specialChar = true;
+                        }
+                    }
+
+                    // Strength of password
+                    let strength1 = "Weak password";
+                    if (hasLower && hasUpper && hasDigit && specialChar && n >= 8) {
+                        strength1 = "Strong password";
+                    } else if ((hasLower || hasUpper) && specialChar && n >= 6) {
+                        strength1 = "Moderate password";
+                    }
+
+                    yolo.textContent = strength1
+                
+
+
+             
+            })
+            text.textContent = strengthText;
+
+        });
+        var a;
+        function pass() {
+            if (a == 1) {
+                document.getElementById('password').type = 'password';
+                document.getElementById('pass-icon').src = 'eye-off-line.png';
+                a = 0;
+            }
+            else {
+                document.getElementById('password').type = 'text';
+                document.getElementById('pass-icon').src = 'eye-2-line.png';
+                a = 1;
+            }
+
+
+        }
+    </script>
+</body>
+
+</html>

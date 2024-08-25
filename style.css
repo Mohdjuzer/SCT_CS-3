@@ -1,0 +1,88 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    box-sizing: border-box;
+}
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: cadetblue;
+}
+.gg{
+   width: 500px;
+   position: absolute;
+    display: flex;
+
+    height: 300px;
+    opacity: 1;
+
+}
+.box{
+    position: relative;
+    width: 300px;
+    height: 50px;
+}
+.box h2{
+    position: absolute;
+    top: -95px;
+    font-size: 1.5rem;
+    color: powderblue;
+    font-weight: 1000;
+    
+}
+.box input{
+position: absolute;
+inset: 2px;
+z-index: 10;
+font-size: 1rem;
+border: none;
+outline: none;
+padding: 10px 15px;
+background-color: rgba(153, 50, 204, 0.355);
+color: white;
+
+}
+.box .password-strength{
+position: absolute;
+inset: 0;
+background: rgba(255, 255, 255, 0.222);
+}
+.box .password-strength:nth-child(2){
+    filter: blur(15px);
+}
+.box .password-strength:nth-child(4){
+    filter: blur(25px);
+    
+}
+.pass-icon{
+    position: absolute;
+    right: -35px;
+    top: 1rem;
+    cursor: pointer;
+    z-index: 1;
+}
+.text{
+    color: rgb(107, 9, 199);
+}
+.yolo{
+    margin-top: 65px;
+    font-size: 1rem;
+    color: black;
+    background-color: azure;
+    border-radius: 1.5rem;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    padding: .5rem;
+    text-align: center;
+    text-decoration: underline;
+}
+#myVideo {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -1;
+  }
